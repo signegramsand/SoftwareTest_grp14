@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Transactions;
 
 namespace LogikLag
 {
@@ -21,6 +22,15 @@ namespace LogikLag
             return (returnVal);
         }
 
+        public double Add(double a)
+        {
+            double returnVal = a + Accumulator;
+
+            Accumulator = returnVal;
+
+            return returnVal;
+        }
+
         public double Subtract(double a, double b)
         {
             double returnVal = a - b;
@@ -31,6 +41,15 @@ namespace LogikLag
             return (returnVal);
         }
 
+        public double Subtract(double a)
+        {
+            double returnVal = a - Accumulator;
+
+            Accumulator = returnVal;
+
+            return returnVal;
+        }
+
         public double Multiply(double a, double b)
         {
             double returnVal = a * b;
@@ -38,6 +57,15 @@ namespace LogikLag
             Accumulator = returnVal;
 
             return (returnVal);
+        }
+
+        public double Multiply(double a)
+        {
+            double returnVal = a * Accumulator;
+
+            Accumulator = returnVal;
+
+            return returnVal;
         }
 
         public double Divide(double a, double b)
@@ -50,6 +78,29 @@ namespace LogikLag
             double returnVal = a / b;
             Accumulator = returnVal;
             return returnVal;
+        }
+
+        public double Divide(double a)
+        {
+            if (a == 0)
+            {
+                throw new ArgumentException("Can't divide by 0!");
+            }
+
+            double returnVal = Accumulator / a;
+
+            Accumulator = returnVal;
+
+            return returnVal;
+        }
+
+        public double Divide(double a)
+        {
+            if (a == 0)
+            {
+                throw new ArgumentException("Can't divide by 0!");
+            }
+            return Accumulator / a;
         }
 
         public double Power(double x, double exp)
@@ -69,5 +120,10 @@ namespace LogikLag
         }
 
 
+
+        public double Power(double exp)
+        {
+            return Math.Pow(Accumulator, exp);
+        }
     }
 }
