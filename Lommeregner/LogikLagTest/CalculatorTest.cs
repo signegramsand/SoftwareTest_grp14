@@ -6,6 +6,19 @@ namespace LogicLayerTest
 {
     public class Tests
     {
+        private Calculator uut;
+
+
+        [SetUp]
+        public void Setup()
+        {
+            //Arrange
+            uut = new Calculator();
+
+        }
+
+
+
         [TestCase(10,10,20)]
         [TestCase(20,10,30)]
         [TestCase(10,20,30)]
@@ -18,7 +31,7 @@ namespace LogicLayerTest
         {
             
             
-            double testVal = Calculator.add(num1, num2);
+            double testVal = uut.Add(num1, num2);
 
             Assert.That(testVal, Is.EqualTo(sum));
         }        
@@ -35,7 +48,7 @@ namespace LogicLayerTest
         {
             
             
-            double testVal = Calculator.subtract(num1, num2);
+            double testVal = uut.Subtract(num1, num2);
 
             Assert.That(testVal, Is.EqualTo(sum));
         }
