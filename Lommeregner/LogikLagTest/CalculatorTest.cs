@@ -40,5 +40,13 @@ namespace LogicLayerTest
 
 
 
+
+        public void Accumulator_Add_AccululatorAdded()
+        {
+            Calculator
+
+
+        }
+
     }
 }
