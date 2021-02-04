@@ -64,7 +64,7 @@ namespace LogicLayerTest
         [TestCase(1.5, 1, 0.5)]
         [TestCase(100, -10, 110)]
         [TestCase(15, 12, 3)]
-        public void Accumulator_Add_AccululatorAdded(double num1, double num2, double sum)
+        public void Accumulator_Subtract_AccululatorSubbed(double num1, double num2, double sum)
         {
             double testVal = uut.Subtract(num1, num2);
 
