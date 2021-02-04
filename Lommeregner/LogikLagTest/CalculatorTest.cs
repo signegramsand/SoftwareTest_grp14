@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace LogicLayerTest
 {
+    [TestFixture]
     public class Tests
     {
         [TestCase(10,10,20)]
@@ -16,8 +17,6 @@ namespace LogicLayerTest
         [TestCase(15,12,27)]
         public void Add_2Numbers_GivesSum(double num1, double num2,double sum)
         {
-            
-            
             double testVal = Calculator.add(num1, num2);
 
             Assert.That(testVal, Is.EqualTo(sum));
@@ -33,8 +32,6 @@ namespace LogicLayerTest
         [TestCase(15,12,3)]
         public void Subtract_2Numbers_GivesSum(double num1, double num2,double sum)
         {
-            
-            
             double testVal = Calculator.subtract(num1, num2);
 
             Assert.That(testVal, Is.EqualTo(sum));
