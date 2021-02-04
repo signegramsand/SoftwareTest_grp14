@@ -40,5 +40,17 @@ namespace LogicLayerTest
             Assert.That(testVal, Is.EqualTo(sum));
         }
 
+        [TestCase(10, 10, 1)]
+        [TestCase(20, 10, 2)]
+        [TestCase(10, 20, 0.5)]
+        [TestCase(1, 1, 1)]
+        [TestCase(1, 0, )]
+        [TestCase(1.5, 1, 0.5)]
+        [TestCase(100, -10, 110)]
+        [TestCase(15, 12, 3)]
+        public void Divide_2Numbers_GivesSum(double num1, double num2, double sum)
+        {
+
+        }
     }
 }

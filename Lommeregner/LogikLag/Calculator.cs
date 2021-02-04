@@ -21,6 +21,15 @@ namespace LogikLag
             return (a * b);
         }
 
+        public double Divide(double a, double b)
+        {
+            if (b==0)
+            {
+                throw new ArgumentException("Can't divide by 0!");
+            }
+            return a / b;
+        }
+
         public double Power(double x, double exp)
         {
             return (Math.Pow(x, exp));
