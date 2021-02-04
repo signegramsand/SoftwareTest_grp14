@@ -116,8 +116,23 @@ namespace LogicLayerTest
         public void Power_2LargeNumbers_GivesOverFlow(double num1, double num2)
         {
             double testVal = uut.Power(num1, num2);
+
             Assert.That(testVal,Is.EqualTo(double.PositiveInfinity));
         }
 
+        [TestCase(10, 1, 10)]
+        [TestCase(10, 2, 20)]
+        [TestCase(2, 2, 4)]
+        [TestCase(1, 1, 1)]
+        [TestCase(1, 0, 0)]
+        [TestCase(-1, 2, -2)]
+        [TestCase(15, 3, 45)]
+        [TestCase(3,4,12)]
+        public void Multiply_2Numbers_GivesSum(double num1, double num2, double sum)
+        {
+            double testVal = uut.Multiply(num1, num2);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
     }
 }
