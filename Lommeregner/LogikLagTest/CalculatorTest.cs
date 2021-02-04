@@ -1,4 +1,5 @@
 
+using System;
 using LogikLag;
 using NUnit.Framework;
 
@@ -61,5 +62,15 @@ namespace LogicLayerTest
         {
 
         }
+
+
+
+        [Test]
+        public void Divide_divide1With0_GiveException()
+        {
+            Assert.That(() => uut.Divide(1,0), Throws.TypeOf<System.ArgumentException>());
+        }
+
+
     }
 }
