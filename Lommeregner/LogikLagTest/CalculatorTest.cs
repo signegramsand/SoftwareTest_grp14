@@ -97,5 +97,27 @@ namespace LogicLayerTest
         }
 
 
+        [TestCase(10, 1, 10)]
+        [TestCase(10, 2, 100)]
+        [TestCase(2, 2, 4)]
+        [TestCase(1, 1, 1)]
+        [TestCase(1, 0, 1)]
+        [TestCase(-1, 2, 1)]
+        [TestCase(15, 3, 3375)]
+        public void Power_2Numbers_GivesSum(double num1, double num2, double sum)
+        {
+            double testVal = uut.Power(num1, num2);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
+
+
+        [TestCase(10000000000, 10000000000)]
+        public void Power_2LargeNumbers_GivesOverFlow(double num1, double num2)
+        {
+            double testVal = uut.Power(num1, num2);
+            Assert.That(testVal,Is.EqualTo(double.PositiveInfinity));
+        }
+
     }
 }
