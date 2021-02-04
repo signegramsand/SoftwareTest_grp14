@@ -5,7 +5,8 @@ using NUnit.Framework;
 
 namespace LogicLayerTest
 {
-    public class Tests
+    [TestFixture]
+    public class CalculatorTest
     {
         private Calculator uut;
         [SetUp]
@@ -51,11 +52,6 @@ namespace LogicLayerTest
         }
 
 
-
-
-
-
-
         [TestCase(10, 10, 0)]
         [TestCase(20, 10, 10)]
         [TestCase(10, 20, -10)]
@@ -73,6 +69,12 @@ namespace LogicLayerTest
 
             Assert.That(accum , Is.EqualTo(sum));
         }
+
+
+
+
+
+
 
 
         [TestCase(10, 10, 1)]

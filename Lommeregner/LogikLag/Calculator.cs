@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Transactions;
 
 namespace LogikLag
 {
@@ -93,6 +94,15 @@ namespace LogikLag
             return returnVal;
         }
 
+        public double Divide(double a)
+        {
+            if (a == 0)
+            {
+                throw new ArgumentException("Can't divide by 0!");
+            }
+            return Accumulator / a;
+        }
+
         public double Power(double x, double exp)
         {
 
@@ -110,5 +120,10 @@ namespace LogikLag
         }
 
 
+
+        public double Power(double exp)
+        {
+            return Math.Pow(Accumulator, exp);
+        }
     }
 }
