@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Transactions;
 
 namespace LogikLag
 {
@@ -21,6 +22,11 @@ namespace LogikLag
             return (returnVal);
         }
 
+        public double Add(double a)
+        {
+            return Accumulator += a;
+        }
+
         public double Subtract(double a, double b)
         {
             double returnVal = a - b;
@@ -29,6 +35,11 @@ namespace LogikLag
 
 
             return (returnVal);
+        }
+
+        public double Subtract(double a)
+        {
+            return Accumulator -= a;
         }
 
         public double Multiply(double a, double b)
@@ -40,6 +51,11 @@ namespace LogikLag
             return (returnVal);
         }
 
+        public double Multiply(double a)
+        {
+            return Accumulator *= a;
+        }
+
         public double Divide(double a, double b)
         {
             if (b==0)
@@ -47,6 +63,15 @@ namespace LogikLag
                 throw new ArgumentException("Can't divide by 0!");
             }
             return a / b;
+        }
+
+        public double Divide(double a)
+        {
+            if (a == 0)
+            {
+                throw new ArgumentException("Can't divide by 0!");
+            }
+            return Accumulator / a;
         }
 
         public double Power(double x, double exp)
@@ -58,6 +83,11 @@ namespace LogikLag
 
 
             return (returnVal);
+        }
+
+        public double Power(double exp)
+        {
+            return Math.Pow(Accumulator, exp);
         }
     }
 }
