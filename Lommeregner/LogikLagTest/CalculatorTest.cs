@@ -60,7 +60,7 @@ namespace LogicLayerTest
         [TestCase(1.5, 1, 0.5)]
         [TestCase(100, -10, 110)]
         [TestCase(15, 12, 3)]
-        public void Accumulator_Add_AccululatorAdded(double num1, double num2, double sum)
+        public void Accumulator_Subtract_AccululatorSubbed(double num1, double num2, double sum)
         {
             double testVal = uut.Subtract(num1, num2);
 
@@ -96,6 +96,45 @@ namespace LogicLayerTest
         public void Divide_divide1With0_GiveException()
         {
             Assert.That(() => uut.Divide(1,0), Throws.TypeOf<System.ArgumentException>());
+        }
+
+
+        [TestCase(10, 1, 10)]
+        [TestCase(10, 2, 100)]
+        [TestCase(2, 2, 4)]
+        [TestCase(1, 1, 1)]
+        [TestCase(1, 0, 1)]
+        [TestCase(-1, 2, 1)]
+        [TestCase(15, 3, 3375)]
+        public void Power_2Numbers_GivesSum(double num1, double num2, double sum)
+        {
+            double testVal = uut.Power(num1, num2);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
+
+
+        [TestCase(10000000000, 10000000000)]
+        public void Power_2LargeNumbers_GivesOverFlow(double num1, double num2)
+        {
+            double testVal = uut.Power(num1, num2);
+
+            Assert.That(testVal,Is.EqualTo(double.PositiveInfinity));
+        }
+
+        [TestCase(10, 1, 10)]
+        [TestCase(10, 2, 20)]
+        [TestCase(2, 2, 4)]
+        [TestCase(1, 1, 1)]
+        [TestCase(1, 0, 0)]
+        [TestCase(-1, 2, -2)]
+        [TestCase(15, 3, 45)]
+        [TestCase(3,4,12)]
+        public void Multiply_2Numbers_GivesSum(double num1, double num2, double sum)
+        {
+            double testVal = uut.Multiply(num1, num2);
+
+            Assert.That(testVal, Is.EqualTo(sum));
         }
     }
 }

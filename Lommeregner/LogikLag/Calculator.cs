@@ -16,7 +16,7 @@ namespace LogikLag
             double returnVal = a + b;
 
 
-            Accumulator += returnVal;
+            Accumulator = returnVal;
 
             return (returnVal);
         }
@@ -25,7 +25,7 @@ namespace LogikLag
         {
             double returnVal = a - b;
 
-            Accumulator += returnVal;
+            Accumulator = returnVal;
 
 
             return (returnVal);
@@ -35,7 +35,7 @@ namespace LogikLag
         {
             double returnVal = a * b;
 
-            Accumulator += returnVal;
+            Accumulator = returnVal;
 
             return (returnVal);
         }
@@ -46,7 +46,10 @@ namespace LogikLag
             {
                 throw new ArgumentException("Can't divide by 0!");
             }
-            return a / b;
+
+            double returnVal = a / b;
+            Accumulator = returnVal;
+            return returnVal;
         }
 
         public double Power(double x, double exp)
@@ -54,10 +57,17 @@ namespace LogikLag
 
             double returnVal = Math.Pow(x, exp);
 
-            Accumulator += returnVal;
+            Accumulator = returnVal;
 
 
             return (returnVal);
         }
+
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
+
+
     }
 }
