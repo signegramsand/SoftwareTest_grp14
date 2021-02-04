@@ -1,4 +1,5 @@
 
+using System;
 using LogikLag;
 using NUnit.Framework;
 
@@ -78,13 +79,23 @@ namespace LogicLayerTest
         [TestCase(20, 10, 2)]
         [TestCase(10, 20, 0.5)]
         [TestCase(1, 1, 1)]
-        [TestCase(1, 0, )]
-        [TestCase(1.5, 1, 0.5)]
-        [TestCase(100, -10, 110)]
-        [TestCase(15, 12, 3)]
+        [TestCase(1.5, 1, 1.5)]
+        [TestCase(100, -10, -10)]
+        [TestCase(15, 10, 1.5)]
         public void Divide_2Numbers_GivesSum(double num1, double num2, double sum)
         {
-
+            double testVal = uut.Divide(num1, num2);
+            Assert.That(testVal, Is.EqualTo(sum));
         }
+
+
+
+        [Test]
+        public void Divide_divide1With0_GiveException()
+        {
+            Assert.That(() => uut.Divide(1,0), Throws.TypeOf<System.ArgumentException>());
+        }
+
+
     }
 }
