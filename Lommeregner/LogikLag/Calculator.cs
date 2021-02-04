@@ -21,6 +21,15 @@ namespace LogikLag
             return (returnVal);
         }
 
+        public double Add(double a)
+        {
+            double returnVal = a + Accumulator;
+
+            Accumulator = returnVal;
+
+            return returnVal;
+        }
+
         public double Subtract(double a, double b)
         {
             double returnVal = a - b;
@@ -29,6 +38,15 @@ namespace LogikLag
 
 
             return (returnVal);
+        }
+
+        public double Subtract(double a)
+        {
+            double returnVal = a - Accumulator;
+
+            Accumulator = returnVal;
+
+            return returnVal;
         }
 
         public double Multiply(double a, double b)
@@ -40,6 +58,15 @@ namespace LogikLag
             return (returnVal);
         }
 
+        public double Multiply(double a)
+        {
+            double returnVal = a * Accumulator;
+
+            Accumulator = returnVal;
+
+            return returnVal;
+        }
+
         public double Divide(double a, double b)
         {
             if (b==0)
@@ -49,6 +76,20 @@ namespace LogikLag
 
             double returnVal = a / b;
             Accumulator = returnVal;
+            return returnVal;
+        }
+
+        public double Divide(double a)
+        {
+            if (a == 0)
+            {
+                throw new ArgumentException("Can't divide by 0!");
+            }
+
+            double returnVal = Accumulator / a;
+
+            Accumulator = returnVal;
+
             return returnVal;
         }
 
