@@ -55,16 +55,25 @@ namespace LogicLayerTest
 
 
 
-
-        public void Accumulator_Add_AccululatorAdded()
+        [TestCase(10, 10, 0)]
+        [TestCase(20, 10, 10)]
+        [TestCase(10, 20, -10)]
+        [TestCase(1, 1, 0)]
+        [TestCase(1, 0, 1)]
+        [TestCase(1.5, 1, 0.5)]
+        [TestCase(100, -10, 110)]
+        [TestCase(15, 12, 3)]
+        public void Accumulator_Add_AccululatorAdded(double num1, double num2, double sum)
         {
-            Calculator
+            double testVal = uut.Subtract(num1, num2);
 
 
+            double accum = uut.Accumulator;
+
+            Assert.That(accum , Is.EqualTo(sum));
         }
 
-    }
-}
+
         [TestCase(10, 10, 1)]
         [TestCase(20, 10, 2)]
         [TestCase(10, 20, 0.5)]
