@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lommeregner
+namespace LogikLag
 {
     public class Calculator
     {
