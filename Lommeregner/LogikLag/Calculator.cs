@@ -94,15 +94,6 @@ namespace LogikLag
             return returnVal;
         }
 
-        public double Divide(double a)
-        {
-            if (a == 0)
-            {
-                throw new ArgumentException("Can't divide by 0!");
-            }
-            return Accumulator / a;
-        }
-
         public double Power(double x, double exp)
         {
 
