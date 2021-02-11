@@ -161,5 +161,69 @@ namespace LogicLayerTest
 
             Assert.That(testVal, Is.EqualTo(sum));
         }
+
+
+        [TestCase(10, 1)]
+        [TestCase(10, 2)]
+        [TestCase(2, 2)]
+        [TestCase(1, 1)]
+        [TestCase(-2, -2)]
+        [TestCase(-1, 3)]
+        [TestCase(0, 0)]
+        public void AddOverflow_2Number_GiveSum(double num1, double num2)
+        {
+            double AccumulatorOnce = uut.Add(num1);
+
+            Assert.That(AccumulatorOnce, Is.EqualTo(num1));
+            Assert.That(AccumulatorOnce, Is.EqualTo(uut.Accumulator));
+
+
+
+            double AccumulatorTwice = uut.Add(num2);
+
+            Assert.That(AccumulatorTwice, Is.EqualTo(num1+num2));
+            Assert.That(AccumulatorTwice, Is.EqualTo(uut.Accumulator));
+        }
+
+
+
+        [TestCase(10, 1, 10)]
+        [TestCase(10,-2, -20)]
+        [TestCase(-2, -4, 8)]
+        public void Multiply_1Number_GivesSum(double num1, double numToAccumulator, double sum)
+        {
+            uut.Add(numToAccumulator);
+
+            double testVal = uut.Multiply(num1);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
+
+        [TestCase(5, 10, 2)]
+        [TestCase(6, 18, 3)]
+        [TestCase(2, 4, 2)]
+        public void Divide_1Number_GivesSum(double num1, double numToAccumulator, double sum)
+        {
+            uut.Add(numToAccumulator);
+
+            double testVal = uut.Divide(num1);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
+
+
+        [TestCase(10)]
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(-2)]
+        public void Clear_AddNumber_GiveZero(double num1)
+        {
+            uut.Add(num1);
+
+
+            uut.Clear();
+
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
     }
 }
