@@ -182,5 +182,20 @@ namespace LogicLayerTest
 
             Assert.That(testVal, Is.EqualTo(sum));
         }
+
+
+        [TestCase(10)]
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(-2)]
+        public void Clear_AddNumber_GiveZero(double num1)
+        {
+            uut.Add(num1);
+
+
+            uut.Clear();
+
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
     }
 }
