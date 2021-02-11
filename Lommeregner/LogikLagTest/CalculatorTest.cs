@@ -136,8 +136,8 @@ namespace LogicLayerTest
 
 
         [TestCase(10, 1, 10)]
-        [TestCase(10,2, 20)]
-        [TestCase(2, 4, 8)]
+        [TestCase(10,-2, -20)]
+        [TestCase(-2, -4, 8)]
         public void Multiply_1Number_GivesSum(double num1, double numToAccumulator, double sum)
         {
             uut.Add(numToAccumulator);
