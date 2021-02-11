@@ -157,5 +157,30 @@ namespace LogicLayerTest
             Assert.That(AccumulatorTwice, Is.EqualTo(uut.Accumulator));
         }
 
+
+
+        [TestCase(10, 1, 10)]
+        [TestCase(10,-2, -20)]
+        [TestCase(-2, -4, 8)]
+        public void Multiply_1Number_GivesSum(double num1, double numToAccumulator, double sum)
+        {
+            uut.Add(numToAccumulator);
+
+            double testVal = uut.Multiply(num1);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
+
+        [TestCase(5, 10, 2)]
+        [TestCase(6, 18, 3)]
+        [TestCase(2, 4, 2)]
+        public void Divide_1Number_GivesSum(double num1, double numToAccumulator, double sum)
+        {
+            uut.Add(numToAccumulator);
+
+            double testVal = uut.Divide(num1);
+
+            Assert.That(testVal, Is.EqualTo(sum));
+        }
     }
 }
