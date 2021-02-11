@@ -92,7 +92,11 @@ namespace LogicLayerTest
         [Test]
         public void Divide_divide1With0_GiveException()
         {
-            Assert.That(() => uut.Divide(1,0), Throws.TypeOf<System.ArgumentException>());
+
+           var ex = Assert.Catch<ArgumentException> (() => uut.Divide(1, 0));
+
+
+           Assert.That(ex.Message, Is.EqualTo("Can't divide by 0!"));
         }
 
 
