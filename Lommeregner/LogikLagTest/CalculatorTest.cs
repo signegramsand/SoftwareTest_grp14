@@ -133,5 +133,29 @@ namespace LogicLayerTest
 
             Assert.That(testVal, Is.EqualTo(sum));
         }
+
+
+        [TestCase(10, 1)]
+        [TestCase(10, 2)]
+        [TestCase(2, 2)]
+        [TestCase(1, 1)]
+        [TestCase(-2, -2)]
+        [TestCase(-1, 3)]
+        [TestCase(0, 0)]
+        public void AddOverflow_2Number_GiveSum(double num1, double num2)
+        {
+            double AccumulatorOnce = uut.Add(num1);
+
+            Assert.That(AccumulatorOnce, Is.EqualTo(num1));
+            Assert.That(AccumulatorOnce, Is.EqualTo(uut.Accumulator));
+
+
+
+            double AccumulatorTwice = uut.Add(num2);
+
+            Assert.That(AccumulatorTwice, Is.EqualTo(num1+num2));
+            Assert.That(AccumulatorTwice, Is.EqualTo(uut.Accumulator));
+        }
+
     }
 }
