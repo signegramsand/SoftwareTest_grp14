@@ -124,7 +124,7 @@ namespace LogicLayerTest
         }
 
         [TestCase(1, 1, 1)]
-        [TestCase(1, 2, 2)]
+        [TestCase(1, 2, 1)]
         [TestCase(1, 0, 1)]
         public void Power_Accumulator_And_Number(double num1, double num2, double sum)
         {
