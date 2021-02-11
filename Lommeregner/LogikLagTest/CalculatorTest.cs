@@ -119,6 +119,34 @@ namespace LogicLayerTest
             Assert.That(testVal,Is.EqualTo(double.PositiveInfinity));
         }
 
+        [TestCase(1, 1, 1)]
+        [TestCase(1, 2, 2)]
+        [TestCase(1, 0, 1)]
+        public void Power_Accumulator_And_Number(double num1, double num2, double sum)
+        {
+            uut.Add(num1);
+            uut.Power(num2);
+
+            Assert.That(uut.Accumulator, Is.EqualTo(sum));
+        }
+
+        [TestCase(10, 10, 0)]
+        [TestCase(20, 10, 10)]
+        [TestCase(10, 20, -10)]
+        [TestCase(1, 1, 0)]
+        [TestCase(1, 0, 1)]
+        [TestCase(1.5, 1, 0.5)]
+        [TestCase(100, -10, 110)]
+        [TestCase(15, 12, 3)]
+        public void Subtract_Accumulator_GivesSum(double num1, double num2, double sum)
+        {
+            uut.Add(num1);
+            uut.Subtract(num2);
+
+            Assert.That(uut.Accumulator, Is.EqualTo(sum));
+        }
+        
+
         [TestCase(10, 1, 10)]
         [TestCase(10, 2, 20)]
         [TestCase(2, 2, 4)]
