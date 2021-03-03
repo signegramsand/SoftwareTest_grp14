@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="APIWebServiesConnector" Version="20210223.26.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="3.0.91" />
   </ItemGroup>
 
