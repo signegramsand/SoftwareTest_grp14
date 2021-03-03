@@ -43,7 +43,7 @@ namespace LogikLag
 
         public double Subtract(double a)
         {
-            double returnVal = a - Accumulator;
+            double returnVal = Accumulator - a;
 
             Accumulator = returnVal;
 

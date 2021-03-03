@@ -92,7 +92,11 @@ namespace LogicLayerTest
         [Test]
         public void Divide_divide1With0_GiveException()
         {
-            Assert.That(() => uut.Divide(1,0), Throws.TypeOf<System.ArgumentException>());
+
+           var ex = Assert.Catch<ArgumentException> (() => uut.Divide(1, 0));
+
+
+           Assert.That(ex.Message, Is.EqualTo("Can't divide by 0!"));
         }
 
 
@@ -120,7 +124,7 @@ namespace LogicLayerTest
         }
 
         [TestCase(1, 1, 1)]
-        [TestCase(1, 2, 2)]
+        [TestCase(1, 2, 1)]
         [TestCase(1, 0, 1)]
         public void Power_Accumulator_And_Number(double num1, double num2, double sum)
         {
